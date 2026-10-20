@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Bài tập 1: Danh sách Sản phẩm Search</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <header>
+    <nav class="navbar">
+      <div class="logo">WebDev Exam</div>
+      <ul class="nav-links">
+        <li><a href="index.html" class="active">Bài 1 (Sản phẩm)</a></li>
+        <li><a href="baitap02.html">Bài 2 (Form)</a></li>
+        <li><a href="baitap03.html">Bài 3 (Countdown)</a></li>
+        <li><a href="lythuyet.html">Lý thuyết</a></li>
+        <li><a href="diemdanh.html">Điểm danh</a></li>
+        <li><a href="baitap22.html">Bài tập 22</a></li>
+        <li><a href="baitap23.html">Bài tập 23</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main class="container">
+    <h1>Bài tập 1: Danh sách & Tìm kiếm Sản phẩm</h1>
+
+    <!-- Khung tìm kiếm -->
+    <div class="search-box">
+      <input type="text" id="searchInput" placeholder="Nhập tên sản phẩm cần tìm (ví dụ: iPhone, Laptop)...">
+      <button id="searchBtn">Tìm kiếm</button>
+    </div>
+
+    <!-- Thông báo lỗi/kết quả -->
+    <div id="noResult" class="error-msg" style="display: none;">
+      Không tìm thấy sản phẩm nào phù hợp!
+    </div>
+
+    <!-- Danh sách sản phẩm -->
+    <div id="productGrid" class="product-grid"></div>
+
+    <!-- Tư duy Giải thuật -->
+    <section class="card explanation">
+      <h3>Logic Tư duy & Bảo mật:</h3>
+      <ul>
+        <li><strong>Tránh Injection:</strong> Sử dụng <code>textContent</code> thay vì <code>innerHTML</code> khi render các văn bản do người dùng nhập. Làm sạch input bằng <code>trim()</code> và loại bỏ ký tự đặc biệt trước khi xử lý.</li>
+        <li><strong>Tối ưu tìm kiếm:</strong> Chuẩn hóa cả tên sản phẩm và từ khóa về dạng viết thường (<code>toLowerCase()</code>) để tìm kiếm không phân biệt hoa/thường. Dùng hàm <code>includes()</code> để hỗ trợ tìm kiếm theo từ khóa một phần.</li>
+      </ul>
+    </section>
+  </main>
+
+  <script src="js/script.js"></script>
+</body>
+</html>

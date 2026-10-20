@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Bài tập 23 - Đèn Kéo Quân & Kết Quả Bài 22</title>
+  <link rel="stylesheet" href="css/style.css">
+  <style>
+    /* CSS RIÊNG CHO ĐÈN KÉO QUÂN 3D */
+    .lamp-section {
+      text-align: center;
+      padding: 1rem;
+    }
+
+    .lamp-container {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 420px;
+      perspective: 1000px; /* Độ sâu không gian 3D */
+      margin: 2rem 0;
+      overflow: hidden;
+    }
+
+    .lantern {
+      width: 160px;
+      height: 220px;
+      position: relative;
+      transform-style: preserve-3d;
+      animation: spinLantern 12s infinite linear;
+      cursor: pointer;
+    }
+
+    /* Rê chuột vào thì ĐÈN DỪNG QUAY */
+    .lantern:hover {
+      animation-play-state: paused;
+    }
+
+    .lantern-face {
+      position: absolute;
+      width: 160px;
+      height: 220px;
+      border: 3px solid #f59e0b;
+      border-radius: 8px;
+      overflow: hidden;
+      box-shadow: 0 0 15px rgba(245, 158, 11, 0.4);
+      background: #fff;
+    }
+
+    .lantern-face img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    /* Định vị 6 mặt xoay quanh tâm (bán kính 180px) */
+    .face-1 { transform: rotateY(0deg) translateZ(180px); }
+    .face-2 { transform: rotateY(60deg) translateZ(180px); }
+    .face-3 { transform: rotateY(120deg) translateZ(180px); }
+    .face-4 { transform: rotateY(180deg) translateZ(180px); }
+    .face-5 { transform: rotateY(240deg) translateZ(180px); }
+    .face-6 { transform: rotateY(300deg) translateZ(180px); }
+
+    /* Animation xoay vòng tròn 360 độ */
+    @keyframes spinLantern {
+      from { transform: rotateY(0deg); }
+      to { transform: rotateY(360deg); }
+    }
+
+    /* KÍCH THƯỚC BÀI TẬP 22 */
+    .bt22-preview-img {
+      max-width: 100%;
+      height: auto;
+      border-radius: 8px;
+      border: 1px solid #e2e8f0;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+      margin-top: 1rem;
+    }
+
+    .notice-badge {
+      display: inline-block;
+      background: #e0f2fe;
+      color: #0369a1;
+      padding: 6px 16px;
+      border-radius: 20px;
+      font-weight: 600;
+      margin-bottom: 1rem;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <nav class="navbar">
+      <div class="logo">WebDev Exam</div>
+      <ul class="nav-links">
+        <li><a href="index.html">Bài 1 (Sản phẩm)</a></li>
+        <li><a href="baitap02.html">Bài 2 (Form)</a></li>
+        <li><a href="baitap03.html">Bài 3 (Countdown)</a></li>
+        <li><a href="lythuyet.html">Lý thuyết</a></li>
+        <li><a href="diemdanh.html">Điểm danh</a></li>
+        <li><a href="baitap22.html">Bài tập 22</a></li>
+        <li><a href="baitap23.html" class="active">Bài tập 23</a></li>
+        <li><a href="about.html">About</a></li>
+<li><a href="contact.html">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main class="container">
+    <!-- KHU VỰC 1: ĐÈN KÉO QUÂN 3D -->
+    <section class="card lamp-section">
+      <h1>BÀI TẬP 23: HIỆU ỨNG ĐÈN KÉO QUÂN 3D</h1>
+      <span class="notice-badge">💡 Rê chuột vào đèn để DỪNG QUAY — Di chuột ra ngoài để QUAY TIẾP</span>
+
+      <div class="lamp-container">
+        <div class="lantern" id="lantern">
+          <div class="lantern-face face-1"><img src="images/avatar.jpg" alt="Mặt 1" onerror="this.src='https://picsum.photos/200/300?random=1'"></div>
+          <div class="lantern-face face-2"><img src="images/avatar.jpg" alt="Mặt 2" onerror="this.src='https://picsum.photos/200/300?random=2'"></div>
+          <div class="lantern-face face-3"><img src="images/avatar.jpg" alt="Mặt 3" onerror="this.src='https://picsum.photos/200/300?random=3'"></div>
+          <div class="lantern-face face-4"><img src="images/avatar.jpg" alt="Mặt 4" onerror="this.src='https://picsum.photos/200/300?random=4'"></div>
+          <div class="lantern-face face-5"><img src="images/avatar.jpg" alt="Mặt 5" onerror="this.src='https://picsum.photos/200/300?random=5'"></div>
+          <div class="lantern-face face-6"><img src="images/avatar.jpg" alt="Mặt 6" onerror="this.src='https://picsum.photos/200/300?random=6'"></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- KHU VỰC 2: LIÊN KẾT HÌNH KẾT QUẢ BÀI TẬP 22 -->
+    <section class="card" style="text-align: center;">
+      <h2>KẾT QUẢ THỐNG KÊ BÀI TẬP 22</h2>
+      <p style="color: #64748b;">Hình ảnh số liệu thống kê hiệu suất thực hành Bài tập 22</p>
+      
+      <a href="baitap22.html">
+        <img src="images/baitap22.jpg" alt="Kết quả Bài tập 22" class="bt22-preview-img" onerror="this.src='https://via.placeholder.com/700x350?text=Xem+Chi+Tiet+Ket+Qua+Bai+Tap+22'">
+      </a>
+      
+      <div style="margin-top: 1rem;">
+        <a href="baitap22.html" style="color: #0284c7; font-weight: bold; text-decoration: underline;">👉 Bấm vào đây để chuyển sang trang Bài tập 22 chi tiết</a>
+      </div>
+    </section>
+  </main>
+
+  <script src="js/script.js"></script>
+</body>
+</html>

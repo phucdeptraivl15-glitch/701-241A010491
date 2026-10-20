@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Bài tập 2: Register Form Validation</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <header>
+    <nav class="navbar">
+      <div class="logo">WebDev Exam</div>
+      <ul class="nav-links">
+        <li><a href="index.html">Bài 1 (Sản phẩm)</a></li>
+        <li><a href="baitap02.html" class="active">Bài 2 (Form)</a></li>
+        <li><a href="baitap03.html">Bài 3 (Countdown)</a></li>
+        <li><a href="lythuyet.html">Lý thuyết</a></li>
+        <li><a href="diemdanh.html">Điểm danh</a></li>
+        <li><a href="baitap22.html">Bài tập 22</a></li>
+        <li><a href="baitap23.html">Bài tập 23</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main class="container">
+    <div class="form-card">
+      <h2>Đăng ký Tài khoản</h2>
+      <div id="successBanner" class="success-banner" style="display: none;"></div>
+
+      <form id="registerForm" novalidate>
+        <div class="form-group">
+          <label for="fullname">Họ và Tên:</label>
+          <input type="text" id="fullname" placeholder="Nguyễn Văn A">
+          <small class="error-text" id="nameError"></small>
+        </div>
+
+        <div class="form-group">
+          <label for="email">Email:</label>
+          <input type="email" id="email" placeholder="example@domain.com">
+          <small class="error-text" id="emailError"></small>
+        </div>
+
+        <div class="form-group">
+          <label for="password">Mật khẩu:</label>
+          <input type="password" id="password" placeholder="Ít nhất 8 ký tự, 1 hoa, 1 thường, 1 số">
+          <small class="error-text" id="passError"></small>
+        </div>
+
+        <div class="form-group checkbox-group">
+          <input type="checkbox" id="terms">
+          <label for="terms">Tôi đồng ý với các điều khoản dịch vụ</label>
+          <small class="error-text" id="termsError"></small>
+        </div>
+
+        <button type="submit" class="btn-submit">Đăng ký ngay</button>
+      </form>
+    </div>
+
+    <section class="card explanation">
+      <h3>Logic Tư duy & Bảo mật Dữ liệu:</h3>
+      <ul>
+        <li><strong>Xử lý Submit:</strong> Gọi <code>e.preventDefault()</code> để ngăn trình duyệt reload trang mặc định, cho phép JavaScript chạy toàn bộ logic validation.</li>
+        <li><strong>Regex Validation:</strong> Sử dụng Regex <code>/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d).{8,}$/</code> kiểm tra chính xác độ mạnh mật khẩu.</li>
+<li><strong>Bảo mật LocalStorage:</strong> LocalStorage lưu dạng Plaintext công khai trên trình duyệt. Trong thực tế, **không lưu trực tiếp Password** vào LocalStorage. Nếu bắt buộc lưu mô phỏng client, ta nên mã hóa hash (vd: SHA-256) hoặc loại bỏ password trước khi lưu object user vào storage.</li>
+      </ul>
+    </section>
+  </main>
+
+  <script src="js/script.js"></script>
+</body>
+</html>

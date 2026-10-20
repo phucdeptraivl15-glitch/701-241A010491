@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Bài tập 3 - Countdown Timer 10 Phút</title>
+  <link rel="stylesheet" href="css/style.css">
+  <style>
+    .timer-card {
+      text-align: center;
+      background: #fff;
+      padding: 2.5rem;
+      border-radius: 12px;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+      max-width: 420px;
+      margin: 1.5rem auto;
+    }
+
+    .timer-display {
+      font-size: 3.8rem;
+      font-weight: bold;
+      font-family: 'Courier New', Courier, monospace;
+      color: #0f172a;
+      margin: 1.5rem 0;
+      letter-spacing: 2px;
+    }
+
+    /* Hiệu ứng nhấp nháy đỏ khi dưới 1 phút (60s) */
+    .timer-warning {
+      color: #dc2626 !important;
+      animation: pulseWarning 1s infinite alternate;
+    }
+
+    @keyframes pulseWarning {
+      0% { transform: scale(1); }
+      100% { transform: scale(1.08); }
+    }
+
+    .timer-btn {
+      padding: 10px 24px;
+      font-size: 1rem;
+      font-weight: 600;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+      margin: 0 5px;
+      transition: all 0.2s;
+    }
+
+    .btn-start { background: #16a34a; color: white; }
+    .btn-start:hover { background: #15803d; }
+
+    .btn-reset { background: #64748b; color: white; }
+    .btn-reset:hover { background: #475569; }
+
+    /* Modal Alert khi hết giờ */
+    .modal-overlay {
+      position: fixed;
+      top: 0; left: 0; right: 0; bottom: 0;
+      background: rgba(0, 0, 0, 0.6);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      z-index: 1000;
+    }
+
+    .modal-box {
+      background: white;
+      padding: 2rem;
+      border-radius: 10px;
+      text-align: center;
+      max-width: 320px;
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+    }
+
+    .modal-box button {
+      margin-top: 15px;
+      padding: 8px 20px;
+      background: #0284c7;
+      color: white;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <nav class="navbar">
+      <div class="logo">WebDev Exam</div>
+      <ul class="nav-links">
+        <li><a href="index.html">Bài 1 (Sản phẩm)</a></li>
+        <li><a href="baitap02.html">Bài 2 (Form)</a></li>
+        <li><a href="baitap03.html" class="active">Bài 3 (Countdown)</a></li>
+        <li><a href="lythuyet.html">Lý thuyết</a></li>
+        <li><a href="diemdanh.html">Điểm danh</a></li>
+        <li><a href="baitap22.html">Bài tập 22</a></li>
+        <li><a href="baitap23.html">Bài tập 23</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main class="container">
+    <div class="timer-card">
+      <h1>Đồng Hồ Đếm Ngược</h1>
+      <p style="color: #64748b; margin-top: 5px;">Thời gian ban đầu: 10 Phút (10:00)</p>
+<div id="timerDisplay" class="timer-display">10:00</div>
+
+      <div class="timer-controls">
+        <button id="startBtn" class="timer-btn btn-start">Bắt đầu</button>
+        <button id="resetBtn" class="timer-btn btn-reset">Đặt lại</button>
+      </div>
+    </div>
+
+    <!-- Modal Thông báo hết giờ -->
+    <div id="timeOutModal" class="modal-overlay" style="display: none;">
+      <div class="modal-box">
+        <h2 style="color: #dc2626;">⏰ HẾT GIỜ!</h2>
+        <p style="margin-top: 10px;">Đã hoàn thành thời gian đếm ngược 10 phút.</p>
+        <button id="closeModalBtn">Đóng thông báo</button>
+      </div>
+    </div>
+
+    <section class="card" style="margin-top: 2rem;">
+      <h3>Giải thích Logic tư duy Bài 3:</h3>
+      <ul style="margin-left: 20px; line-height: 1.8;">
+        <li><strong>Xử lý Interval tránh Memory Leak:</strong> Luôn kiểm tra biến <code>timerInterval</code> và gọi <code>clearInterval()</code> trước khi khởi tạo đếm ngược mới hoặc khi bấm đặt lại/hết giờ.</li>
+        <li><strong>Tối ưu trải nghiệm:</strong> Khi thời gian dưới 1 phút (60 giây), hiển thị animation đỏ cảnh báo nổi bật. Khi chạm 00:00, kích hoạt Modal Pop-up hiển thị thông báo.</li>
+      </ul>
+    </section>
+  </main>
+
+  <!-- Đảm bảo liên kết file JS -->
+  <script src="js/script.js"></script>
+</body>
+</html>

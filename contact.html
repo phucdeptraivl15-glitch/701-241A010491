@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Liên hệ - Contact</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <header>
+    <nav class="navbar">
+      <div class="logo">WebDev Exam</div>
+      <ul class="nav-links">
+        <li><a href="index.html">Bài 1 (Sản phẩm)</a></li>
+        <li><a href="baitap02.html">Bài 2 (Form)</a></li>
+        <li><a href="baitap03.html">Bài 3 (Countdown)</a></li>
+        <li><a href="lythuyet.html">Lý thuyết</a></li>
+        <li><a href="diemdanh.html">Điểm danh</a></li>
+        <li><a href="baitap22.html">Bài tập 22</a></li>
+        <li><a href="baitap23.html">Bài tập 23</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="contact.html" class="active">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main class="container">
+    <div class="form-card" style="max-width: 550px;">
+      <h2>THÔNG TIN LIÊN HỆ</h2>
+      <p style="margin-bottom: 1.5rem; text-align: center; color: #64748b;">Gửi phản hồi hoặc thắc mắc về bài tập học phần</p>
+
+      <form id="contactForm" onsubmit="event.preventDefault(); alert('Cảm ơn bạn đã gửi liên hệ!'); this.reset();">
+        <div class="form-group">
+          <label for="contactName">Họ và tên:</label>
+          <input type="text" id="contactName" placeholder="Nhập họ và tên..." required>
+        </div>
+
+        <div class="form-group">
+          <label for="contactEmail">Email liên hệ:</label>
+          <input type="email" id="contactEmail" placeholder="example@domain.com" required>
+        </div>
+
+        <div class="form-group">
+          <label for="contactMsg">Nội dung tin nhắn:</label>
+          <textarea id="contactMsg" rows="5" style="width: 100%; padding: 10px; border: 1px solid #ccc; border-radius: 4px; margin-top: 5px;" placeholder="Nhập nội dung cần liên hệ..." required></textarea>
+        </div>
+
+        <button type="submit" class="btn-submit">Gửi liên hệ</button>
+      </form>
+    </div>
+  </main>
+  <script src="js/script.js"></script>
+</body>
+</html>

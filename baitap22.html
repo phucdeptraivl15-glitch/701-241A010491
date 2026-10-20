@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Kết quả Bài tập 22</title>
+  <link rel="stylesheet" href="css/style.css">
+  <style>
+    .result-card {
+      text-align: center;
+      padding: 2rem;
+    }
+    .result-img {
+      max-width: 100%;
+      height: auto;
+      border-radius: 8px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+      margin-top: 1.5rem;
+      border: 1px solid #e2e8f0;
+    }
+    .stat-info {
+      display: flex;
+      justify-content: center;
+      gap: 15px;
+      margin-top: 1.5rem;
+      flex-wrap: wrap;
+    }
+    .badge-item {
+      padding: 8px 16px;
+      border-radius: 20px;
+      font-weight: 600;
+      font-size: 0.95rem;
+    }
+    .badge-success { background: #dcfce7; color: #166534; }
+    .badge-danger { background: #fee2e2; color: #991b1b; }
+    .badge-info { background: #e0f2fe; color: #075985; }
+  </style>
+</head>
+<body>
+  <header>
+    <nav class="navbar">
+      <div class="logo">WebDev Exam</div>
+      <ul class="nav-links">
+        <li><a href="index.html">Bài 1 (Sản phẩm)</a></li>
+        <li><a href="baitap02.html">Bài 2 (Form)</a></li>
+        <li><a href="baitap03.html">Bài 3 (Countdown)</a></li>
+        <li><a href="lythuyet.html">Lý thuyết</a></li>
+        <li><a href="diemdanh.html">Điểm danh</a></li>
+        <li><a href="baitap22.html" class="active">Bài tập 22</a></li>
+        <li><a href="baitap23.html">Bài tập 23</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main class="container">
+    <section class="card result-card">
+      <h1>KẾT QUẢ BÀI TẬP 22</h1>
+      <p style="color: #64748b; margin-top: 5px;">Số liệu thống kê hiệu suất làm bài tập trắc nghiệm / luyện tập môn học</p>
+
+      <!-- Khung hiển thị các chỉ số nhanh -->
+      <div class="stat-info">
+        <span class="badge-item badge-success">✓ 95 Câu đúng (95%)</span>
+        <span class="badge-item badge-danger">✗ 5 Câusai</span>
+        <span class="badge-item badge-info">⏱ 12s thời gian/câu hỏi</span>
+      </div>
+
+      <!-- Chèn hình ảnh thực tế -->
+      <div style="margin-top: 1rem;">
+        <img src="d:\phuc241a010491.jpg" alt="Số liệu thống kê hiệu suất Bài 22" class="result-img" onerror="this.src='https://via.placeholder.com/800x450?text=Anh+Ket+Qua+Bai+Tap+22'">
+      </div>
+    </section>
+  </main>
+
+  <script src="js/script.js"></script>
+</body>
+</html>

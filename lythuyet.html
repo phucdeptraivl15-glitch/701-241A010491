@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Đáp án Phần Lý thuyết - Đề thi KTHP</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <header>
+    <nav class="navbar">
+      <div class="logo">WebDev Exam</div>
+      <ul class="nav-links">
+        <li><a href="index.html">Bài 1 (Sản phẩm)</a></li>
+        <li><a href="baitap02.html">Bài 2 (Form)</a></li>
+        <li><a href="baitap03.html">Bài 3 (Countdown)</a></li>
+        <li><a href="lythuyet.html" class="active">Lý thuyết</a></li>
+        <li><a href="diemdanh.html">Điểm danh</a></li>
+        <li><a href="baitap22.html">Bài tập 22</a></li>
+        <li><a href="baitap23.html">Bài tập 23</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main class="container">
+    <h1>PHẦN 1: LÝ THUYẾT (40 Điểm)</h1>
+
+    <!-- CÂU 1 -->
+    <section class="card">
+      <h2>Câu 1 (10 điểm): `position: relative` vs `position: absolute`</h2>
+      <h3>1. So sánh sự khác biệt:</h3>
+      <ul>
+        <li><strong>position: relative:</strong> Phần tử giữ nguyên vị trí ban đầu trong luồng tài liệu (normal flow). Các thuộc tính <code>top, right, bottom, left</code> dịch chuyển phần tử so với <em>vị trí gốc</em> của nó. Không ảnh hưởng đến vị trí các phần tử xung quanh.</li>
+        <li><strong>position: absolute:</strong> Phần tử bị tách hoàn toàn khỏi luồng tài liệu (không chiếm khoảng trống). Nó định vị dựa trên phần tử cha gần nhất có <code>position</code> khác <code>static</code> (thường là cha có <code>position: relative</code>). Nếu không có cha hợp lệ, nó định vị theo khung nhìn <code>viewport</code> / <code>html</code>.</li>
+      </ul>
+
+      <h3>2. Ví dụ tình huống Layout Responsive:</h3>
+      <p>Tạo một <strong>Product Card</strong> có badge "Giảm giá 20%" ở góc trên bên phải:</p>
+      <pre><code>/* Container giữ khung thẻ sản phẩm */
+.product-card {
+  position: relative; /* Làm gốc tọa độ */
+  width: 100%;
+  max-width: 300px;
+}
+/* Badge neo vào góc trên bên phải của Product Card */
+.badge-sale {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background: red;
+  color: white;
+}</code></pre>
+
+      <h3>3. Ảnh hưởng khi Deploy lên Hosting & Đa thiết bị:</h3>
+<p>Nhiều màn hình khác nhau (Desktop, Mobile, Tablet) sẽ thay đổi kích thước khung nhìn. Nếu lạm dụng <code>absolute</code> cứng với Pixel (vd: <code>left: 500px</code>), giao diện sẽ bị vỡ layout trên màn hình nhỏ. Khi deploy hosting thương mại, việc responsive sử dụng <code>relative</code> kết hợp Flexbox/Grid giúp các phần tử co giãn chuẩn xác trên mọi thiết bị.</p>
+    </section>
+
+    <!-- CÂU 2 -->
+    <section class="card">
+      <h2>Câu 2 (10 điểm): Đăng ký Domain, Cấu hình Hosting & Bảo mật</h2>
+      <h3>1. Quy trình đăng ký Domain & Cấu hình Hosting:</h3>
+      <ol>
+        <li><strong>Đăng ký Domain:</strong> Mua tên miền tại Nhà cung cấp (Cloudflare, Namecheap, PA Việt Nam...) và nhận quyền quản lý bản ghi DNS.</li>
+        <li><strong>Thuê/Khởi tạo Hosting:</strong> Cấu hình web server (Nginx/Apache hoặc CDN static hosting) để lưu trữ tài nguyên HTML, CSS, JS.</li>
+        <li><strong>Cấu hình DNS:</strong> Trỏ bản ghi <code>A Record</code> (về IP server hosting) hoặc <code>CNAME Record</code> (về domain của hosting platform như GitHub Pages/Netlify).</li>
+      </ol>
+
+      <h3>2. Vai trò của DNS:</h3>
+      <p>DNS (Domain Name System) đóng vai trò như "danh bạ Internet", dịch chuyển tên miền thân thiện người dùng (vd: <code>myapp.com</code>) thành địa chỉ IP máy chủ (vd: <code>192.0.2.1</code>) để trình duyệt tìm đúng nơi chứa mã nguồn JavaScript/HTML.</p>
+
+      <h3>3. Hai công cụ hỗ trợ Deploy Free (No-Server):</h3>
+      <ul>
+        <li><strong>GitHub Pages:</strong> Deploy trực tiếp từ repository trên GitHub, tự động hóa bằng CI/CD, hỗ trợ HTTPS miễn phí và Custom Domain.</li>
+        <li><strong>Netlify / Vercel:</strong> Tự động deploy khi push code, tích hợp sẵn SSL, Serverless Functions, CDN toàn cầu tối ưu tốc độ.</li>
+      </ul>
+
+      <h3>4. Rủi ro bảo mật nếu cấu hình sai:</h3>
+      <ul>
+        <li>Chưa bật <strong>HTTPS (SSL/TLS)</strong>: Dữ liệu truyền tải dạng plaintext, dễ bị tấn công Man-in-the-Middle (MITM) đánh cắp Cookie, Token.</li>
+        <li>Cấu hình <strong>CORS (Cross-Origin Resource Sharing)</strong> quá dễ dãi (<code>Access-Control-Allow-Origin: *</code>) khiến trang web dễ bị khai thác thông qua tấn công Cross-Site Scripting (XSS).</li>
+      </ul>
+    </section>
+
+    <!-- CÂU 3 -->
+    <section class="card">
+      <h2>Câu 3 (10 điểm): `var`, `let`, `const` - Scope, Hoisting & Debug</h2>
+      <h3>1. Bảng so sánh:</h3>
+      <table border="1" style="width:100%; border-collapse: collapse; margin-bottom: 15px;">
+        <tr>
+          <th>Đặc tính</th>
+          <th><code>var</code></th>
+          <th><code>let</code></th>
+          <th><code>const</code></th>
+        </tr>
+        <tr>
+<td><strong>Scope</strong></td>
+          <td>Function Scope / Global Scope</td>
+          <td>Block Scope <code>{ }</code></td>
+          <td>Block Scope <code>{ }</code></td>
+        </tr>
+        <tr>
+          <td><strong>Hoisting</strong></td>
+          <td>Có (khởi tạo giá trị <code>undefined</code>)</td>
+          <td>Có (nằm trong Temporal Dead Zone - TDZ)</td>
+          <td>Có (nằm trong Temporal Dead Zone - TDZ)</td>
+        </tr>
+        <tr>
+          <td><strong>Gán lại</strong></td>
+          <td>Được phép</td>
+          <td>Được phép</td>
+          <td>Không (báo lỗi <code>TypeError</code>)</td>
+        </tr>
+      </table>
+
+      <h3>2. Ví dụ Lỗi thường gặp (Rò rỉ biến trong vòng lặp Async):</h3>
+      <pre><code>// LỖI: Dùng var trong vòng lặp bất đồng bộ
+for (var i = 1; i <= 3; i++) {
+  setTimeout(() => {
+    console.log("i = " + i); // In ra: i = 4, i = 4, i = 4
+  }, 1000);
+}
+
+// SỬA LỖI: Dùng let để tạo block scope riêng cho từng lần lặp
+for (let j = 1; j <= 3; j++) {
+  setTimeout(() => {
+    console.log("j = " + j); // In ra: j = 1, j = 2, j = 3
+  }, 1000);
+}</code></pre>
+
+      <h3>3. Cách Debug bằng Chrome DevTools:</h3>
+      <ol>
+        <li>Mở DevTools (Phím <code>F12</code> hoặc <code>Ctrl + Shift + I</code>) → Chuyển sang thẻ <strong>Sources</strong>.</li>
+        <li>Tìm đến file <code>script.js</code>, click vào dòng mã chứa vòng lặp để đặt <strong>Breakpoint</strong>.</li>
+        <li>Tải lại trang, dùng phím <code>F10</code> (Step over) hoặc <code>F11</code> (Step into) để theo dõi biến <code>i</code> thay đổi trong tab <strong>Scope / Watch</strong>.</li>
+        <li>Dùng tab <strong>Console</strong> gõ trực tiếp tên biến để kiểm tra giá trị thực tế runtime.</li>
+      </ol>
+    </section>
+
+    <!-- CÂU 4 -->
+    <section class="card">
+      <h2>Câu 4 (10 điểm): Event Delegation & Tối ưu hiệu suất</h2>
+      <h3>1. Khái niệm Event Delegation:</h3>
+      <p>Event Delegation (Ủy quyền sự kiện) là kỹ thuật lợi dụng cơ chế <strong>Event Bubbling</strong> (Sự kiện nổi bọt từ phần tử con lên phần tử cha) để gán 1 Event Listener duy nhất vào phần tử cha thay vì gán hàng loạt Listener vào từng phần tử con.</p>
+
+      <h3>2. Ví dụ ứng dụng trên Dynamic List:</h3>
+      <pre><code><!-- HTML -->
+<ul id="todo-list">
+  <li>Công việc 1 <button class="btn-delete">Xóa</button></li>
+</ul>
+<button id="btn-add">Thêm item mới</button>
+
+<!-- JavaScript -->
+<script>
+  const ul = document.getElementById('todo-list');
+
+  // Lắng nghe ở UL cha, bắt sự kiện bọt từ nút .btn-delete
+  ul.addEventListener('click', function(event) {
+    if (event.target.classList.contains('btn-delete')) {
+      event.target.parentElement.remove(); // Xóa LI tương ứng
+    }
+  });
+</script></code></pre>
+
+      <h3>3. Lợi ích Tối ưu hiệu suất khi tích hợp HTML/CSS:</h3>
+      <ul>
+        <li><strong>Tiết kiệm RAM / Bộc phá bộ nhớ:</strong> Tránh tạo hàng nghìn hàm sự kiện trùng lặp trong bộ nhớ JavaScript khi danh sách mở rộng.</li>
+        <li><strong>Xử lý mượt mà cho Dynamic DOM:</strong> Các phần tử con được thêm/xóa động qua JS sau này tự động có sự kiện mà không cần phải gán lại (`bind`) sự kiện thủ công.</li>
+      </ul>
+    </section>
+  </main>
+</body>
+</html>
